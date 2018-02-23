@@ -12,7 +12,7 @@
 		            animation  	   : '',
 		            triggerpoint   : 300,
 		            triggerelement : false,
-		            channel 	   : 'https://www.facebook.com/envato',
+		            channel 	   : 'https://www.facebook.com/aftereffectstemplates11',
 		            bgcolor   	   : '#ffffff',
 		            textcolor      : '#303030',
 		            scrollback	   : false,
