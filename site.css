@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,700,800&subset=latin-ext');
+/* Show it's not fixed to the top */
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    letter-spacing: 0px;
+}
+.intro {
+    background-image: linear-gradient(-1deg, #5b9dea 0%, #0355c3 100%);
+    min-height: 800px;
+    padding-bottom: 0;
+    position: relative;
+    border-radius: 0;
+    margin: 0;
+}
+.logo {
+    width: 200px;
+}
+.hero {
+    padding-top: 170px;
+}
+.hero p {
+    font-size: 20px;
+}
+h1 {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 48px;
+    font-weight: 800;
+}
+h2 {
+    color: #333;
+    letter-spacing: 2px;
+    font-size: 32px;
+    font-weight: 800;
+}
+h3 {
+    color: #333;
+    letter-spacing: 2px;
+    font-size: 28px;
+    font-weight: 800;
+}
+.sub-head {
+    font-size: 22px;
+    color: #666;
+}
+.gift {
+    background-color: #25c700;
+    margin: 0;
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 0;
+}
+.slide {
+    text-align: left;
+    background-color: #fff;
+    color: #262e36;
+    margin: 0;
+    padding-bottom: 0;
+}
+.gift-title {
+    font-size: 20px;
+    position: relative;
+}
+.phone1 {
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
+}
+.gift-img {
+    position: absolute;
+    margin-top: -10px;
+}
+.gift-title span {
+    padding-left: 30px;
+}
+.howslide {
+    padding-top: 80px;
+}
+.btn-support {
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    color: #333 !important;
+    padding: 15px 30px;
+    font-size: 14px;
+}
+.iphone-black {
+    text-align: right;
+    position: relative;
+}
+.iphone-black img {
+    width: 80%;
+}
+.screens {
+    width: 310px;
+    position: absolute;
+    top: 147px;
+    left: 227px;
+}
+.screens img {
+    width: 100%;
+}
+.store-banner {
+    padding-right: 5px;
+}
+.store-banner img {
+    width: 170px;
+    border-radius: 7px;
+    transition: all 500ms ease;
+}
+.store-banner:hover img {
+    box-shadow: 0 10px 40px 0 rgba(00, 00, 00, 0.4);
+    transform: scale(1.05);
+}
+.features .col-sm {
+    padding: 20px;
+}
+.features .col-sm img {
+    width: 80%
+}
+.features {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.features .feature {
+    border-radius: 15px;
+    border: 1px solid #efefef;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 80px 0 rgba(00, 00, 00, 0.1);
+    transition: all 700ms ease;
+}
+.features .feature:hover {
+    box-shadow: 0 30px 100px 0 rgba(00, 00, 00, 0.2);
+    transform: scale(1.03);
+}
+.features .feature .btn-get {
+    border-radius: 40px;
+    background-color: #25c700;
+    color: #fff;
+    font-size: 14px;
+    transition: all 500ms ease;
+    font-weight: bold;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+.features .feature .btn-get:hover {
+    box-shadow: 0 10px 40px 0 rgba(00, 00, 00, 0.4);
+    transform: scale(1.05);
+}
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: #777;
+    font-size: 12px;
+    margin-top: 50px;
+}
+footer .social-icons {
+    text-align: right;
+    font-size: 26px;
+}
+footer .copyright {
+    padding-top: 10px;
+}
+footer .social-icons a {
+    padding: 4px;
+}
+footer a:link,
+footer a:visited,
+footer a:active {
+    color: #999;
+}
+footer a:hover {
+    color: #fff;
+}
+footer .footer-links {
+    padding-top: 10px;
+}
+footer .footer-links a {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+@media only screen and (max-width: 1024px) {
+    .hero {
+        padding-top: 30px;
+        text-align: center;
+    }
+    .store-banner {
+        padding: 0;
+    }
+    .store-banner img {
+        width: 200px;
+        padding: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .iphone-black {
+        text-align: center;
+    }
+    .iphone-black>img {
+        width: 80%;
+    }
+    .screens {
+        width: 262px;
+        top: 125px;
+        left: 134px;
+    }
+    .feature p {
+        min-height: 75px;
+    }
+    .intro {
+        min-height: 780px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .hero {
+        padding-top: 30px;
+        text-align: center;
+    }
+    .store-banner {
+        padding: 0;
+    }
+    .store-banner img {
+        width: 200px;
+        padding: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .iphone-black {
+        text-align: center;
+    }
+    .iphone-black>img {
+        width: 80%;
+    }
+    .screens {
+        width: 327px;
+        top: 168px;
+        left: 177px;
+    }
+    .feature p {
+        min-height: 125px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .hero {
+        padding-top: 30px;
+        text-align: center;
+    }
+    .store-banner {
+        padding: 0;
+    }
+    .store-banner img {
+        width: 200px;
+        padding: 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .iphone-black {
+        text-align: center;
+    }
+    .iphone-black img {
+        width: 100%;
+    }
+    .screens {
+        width: 216px;
+        top: 104px;
+        left: 69px;
+    }
+    footer .col-sm {
+        text-align: center;
+    }
+    footer .social-icons {
+        padding-top: 10px;
+    }
+    .feature p {
+        min-height: 80px;
+    }
+}
+@media only screen and (max-width: 376px) {
+    .screens {
+        width: 188px;
+        top: 95px;
+        left: 63px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .screens {
+        width: 183px;
+        top: 89px;
+        left: 58px;
+    }
+}
+@media only screen and (max-width: 321px) {
+    .screens {
+        width: 158px;
+        top: 76px;
+        left: 50px;
+    }
+}
