@@ -1,0 +1,305 @@
+@import '../../node_modules/bourbon/app/assets/stylesheets/_bourbon';
+
+$modalite-breakpoint: 480px;
+$modalite-border-radius: 5px;
+
+$modalite-close-url: url("https://i.imgur.com/wn6llx9.png");
+$modalite-close-diameter: 32px;
+
+$modalite-spinner-url: url("https://i.imgur.com/Sb3uZpe.png");
+$modalite-spinner-width: 1.6em;
+$modalite-spinner-height: 1.6em;
+
+@keyframes modalite-spinner-animation {
+    0%   { @include transform(rotate(0)); }
+    100% { @include transform(rotate(360deg)); }
+}
+
+.modalite-modal {
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    box-sizing: border-box;
+
+    position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+
+    @include transition(
+        visibility 0.3s linear,
+        opacity 0.3s ease-out
+    );
+
+    &.is-visible {
+        pointer-events: auto;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.modalite-iframe {
+    .modalite-content {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;   
+    }
+}
+
+.modalite-remote {
+    .modalite-container:before {
+        /* remote modal overlay */
+
+        content: "";
+
+        display: none;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        
+        background-color: #eee;
+        position: absolute;
+            left: 0;
+            top: 0;
+
+        border-radius: $modalite-border-radius;
+        visibility: visible;
+        opacity: 0.9;
+
+        @include transition(all 0.8s ease-out);
+    }
+
+        &.is-visible .modalite-container:before {
+            /**
+             * By default, the modal overlay is hidden so that it doesn't affect
+             * mouse input. It only becomes visible when the modal itself is.
+             */
+
+            display: block;
+        }
+
+        &.is-loaded .modalite-container:before {
+            /* remote modal overlay active */
+
+            visibility: hidden;
+            opacity: 0;
+        }
+
+    .modalite-content:after {
+        /* remote modal spinner */
+
+        content: "";
+
+        pointer-events: none;
+        width: $modalite-spinner-width;
+        height: $modalite-spinner-height;
+        margin-top: -($modalite-spinner-height / 2);
+        margin-left: -($modalite-spinner-width / 2);
+
+        position: absolute;
+            top: 50%;
+            left: 50%;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: $modalite-spinner-url;
+        visibility: hidden;
+        opacity: 0;
+
+        @include animation(modalite-spinner-animation 0.8s linear infinite);
+        @include transition(all 0.3s ease-out);
+    }
+
+        &.is-loading .modalite-content:after {
+            /* remote modal spinner active */
+
+            visibility: visible;
+            opacity: 1;
+        }
+}
+
+    .modalite-container {
+        position: relative; /* for .modalite-close */
+
+        box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.5);
+        background-color: #eee;
+        border-radius: $modalite-border-radius;
+
+        width: 100%;
+        height: 100%;
+        max-width: 650px;
+        max-width: 40em;
+        max-height: 500px;
+        max-height: 30em;
+
+        @include transform(scale(0.9));
+        @include transition(transform 0.3s ease-out);
+
+        .modalite-modal.is-visible & {
+            @include transform(scale(1));
+        }
+    }
+
+        .modalite-close {
+            background-color: #d12626;
+            background-image: $modalite-close-url;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            display: inline-block;
+            width: $modalite-close-diameter;
+            height: $modalite-close-diameter;
+
+            position: absolute;
+                top: -($modalite-close-diameter * 0.25);
+                right: -($modalite-close-diameter * 0.25);
+
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+            border-radius: $modalite-close-diameter;
+            cursor: pointer;
+
+            @include transition(all 0.3s ease-out);
+
+            &:hover {
+                background-color: #ea3c3c;
+            }
+        }
+
+        .modalite-content {
+            width: 100%;
+            height: 100%;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            box-sizing: border-box;
+
+            box-shadow: inset 0 0px 10px 0 rgba(0, 0, 0, 0.2);
+            border-radius: $modalite-border-radius;
+            overflow: auto;
+        }
+
+@media (max-width: $modalite-breakpoint) {
+    .modalite-modal {
+        display: block;
+        padding: 1em;
+    }
+
+        .modalite-container {
+            max-width: none;
+            max-height: none;
+        }
+
+            .modalite-close {
+                @include transform(scale(0.85));
+            }
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #eee;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #333;
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+a {
+    color: #226ee8;
+    @include transition(all 0.2s ease);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+hr {
+    opacity: 0.3;
+}
+
+.openers-container {
+    @include display(flex);
+    @include flex-flow(column nowrap);
+    @include align-items(center);
+    @include justify-content(center);
+    width: 100%;
+    height: 100%;
+    padding: 2em 0;
+    box-sizing: border-box;
+
+    font-size: 2.6vh;
+    text-align: center;
+
+    p {
+        width: 18em;
+        margin: 0.8em 0;
+        padding: 1.2em;    
+
+        font-weight: bold;
+        color: #eee;
+        background-color: #5d3dea;
+        border-radius: 999px;
+        cursor: pointer;
+
+        @include transition(background 0.2s ease-out);
+
+        &:hover {
+            background-color: #226ee8;
+        }
+
+        &.em {
+            background-color: #4b6;
+
+            &:hover {
+                background-color: #5c7;
+            }
+        }
+    }
+}
+
+#modal-started {
+    .modalite-content {
+        @include display(flex);
+        @include align-items(center);
+    }
+
+        .text {
+            margin: 0 auto;
+
+            font-size: 1.2em;
+            text-align: center; 
+        }
+}
