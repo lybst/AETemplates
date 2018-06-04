@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {  
     
     var expanded = false;
-    var pagePeelContainer = $('<div target='_blanc' id="PagePeel"></div>');    
+    var pagePeelContainer = $('<div id="PagePeel"></div>');    
 
     //Get colours from front end
     var peelColorStart = PagePeelProParams.peelColorStart == undefined || PagePeelProParams.peelColorStart == '' ? '#333' : PagePeelProParams.peelColorStart;
